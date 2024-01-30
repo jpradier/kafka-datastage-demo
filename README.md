@@ -7,7 +7,7 @@ However, one of the pre-requisite was some knowledge of [IBM Event Stream](https
 
 If you don't have the time, here are the exact steps I followed:
 1. [Setup Prerequisites](#setup-prerequisites)
-2. [Streaming Stock Data to your IBM Event Streams instance](#user-content-streaming-stock-data-to-your-ibm-event-streams-instance)
+2. [Streaming Stock Data to your IBM Event Streams instance](#streaming-stock-data-to-your-ibm-event-streams-instance)
 3. [Running the DataStage tutorial](#running-the-datastage-tutorial)
 <br>
 
