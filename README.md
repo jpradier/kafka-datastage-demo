@@ -6,11 +6,20 @@ However, one of the pre-requisite was some knowledge of [IBM Event Stream](https
 <br>
 
 If you don't have the time, here are the exact steps I followed:
+1. [Setup Prerequisites](#setup-prerequisites)
+2. [Streaming Stock Data to your IBM Event Streams instance](#user-content-streaming-stock-data-to-your-ibm-event-streams-instance)
+3. [Running the DataStage tutorial](#running-the-datastage-tutorial)
 <br>
 
-### Setup Prerequisites 
+### Setup Prerequisites
 
-First, you need to access your [IBM Cloud account](https://cloud.ibm.com/) and search for IBM Event Streams.
+First, you need to access your [IBM Cloud account](https://cloud.ibm.com/) and provision both the DataStage Serber and the IBM Event Streams service.
+<br>
+
+Let's start with DataStage. Search for DataStage and provision the Lite Plan.
+![Provision IBM DataStage](images/provisionning_datastage.png)
+
+Continue with IBM Event Stream and search for IBM Event Streams.
 ![Provision IBM Event Streams](images/provisionning_eventstreams.png)
 Make sure you select the **Standard Plan** as the Lite Plan doesn't seem to allow you to create more than one topic.
 
@@ -25,7 +34,7 @@ Then go back to the home page of your IBM Event Streams service and click on the
 ![Get Started IBM Event Streams](eventstreams_getstarted.png)
 If you pass this step, you should be viewing the following screen in your default browser:
 
-It's time to follow Dale's nice [Stock connector tutorial](https://dalelane.co.uk/blog/?p=4463). A few pre-requisite first:
+ A few pre-requisites are needed on your desktop as well:
 * install java@11 on your mac: brew install java11 and verify it
 ```
 (base) pradier@juliens-mbp-2 images % java -version
@@ -44,14 +53,17 @@ OS name: "mac os x", version: "14.2", arch: "aarch64", family: "mac"
 ```
 * get a free api key from [Alpha Vantage site](https://www.alphavantage.co/)
 
-You should be good to go. You can either clone [Dale's repo](https://github.com/dalelane/kafka-connect-stockprice-source) and simple clone this repo and move to the connector folder.
+You should be good to go.
+
+### Streaming Stock Data to your IBM Event Streams instance 
+
+It's time to follow Dale's nice [Stock connector tutorial](https://dalelane.co.uk/blog/?p=4463).
+<br>
+You can either clone [Dale's repo](https://github.com/dalelane/kafka-connect-stockprice-source) and simple clone this repo and move to the connector folder.
 Then just build the package:
 ```
 mvn package
 ```
-
-### Streaming Stock Data to your IBM Event Streams instance 
-
 Then you need to run the connector using [Kafka Connect](https://kafka.apache.org/documentation/#connect_user). That is what took me the longest time to figure out. Here are the steps:
 1. Go to the Apache site [Apache Kafka site](https://kafka.apache.org/downloads) and download the latest stable binary
 ```
